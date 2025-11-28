@@ -14,7 +14,7 @@ pipeline
                             branch: 'master',
                             credentialsId: 'github_credatial'
                         ]
-                    gitCheckout(config)
+                    git_checkout(config)
                     sh '''
                         pwd 
                         ls -lrt
