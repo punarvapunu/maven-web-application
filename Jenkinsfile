@@ -7,7 +7,7 @@ pipeline
         stage('Checkout') {
             steps {
                 script {
-                     echo "========executing A========"
+                     echo "========executing A start========"
                     def config = [ 
                             url: 'https://github.com/punarvapunu/maven-web-application.git',
                             branch: 'master',
