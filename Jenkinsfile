@@ -8,6 +8,7 @@ pipeline
             steps {
                 script {
                      echo "========executing A start========"
+                     echo "testing"
                     def config = [ 
                             url: 'https://github.com/punarvapunu/maven-web-application.git',
                             branch: 'master',
