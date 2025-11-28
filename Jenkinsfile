@@ -7,10 +7,11 @@ pipeline
         stage('Checkout') {
             steps {
                 script {
+                     echo "========executing A========"
                     def config = [ 
-                            url: 'https://github.com/itdefined-org-apps/node_backend.git',
-                            branch: 'main',
-                            credentialsId: 'github_token'
+                            url: 'https://github.com/punarvapunu/maven-web-application.git',
+                            branch: 'master',
+                            credentialsId: 'github_credatial'
                         ]
                     gitCheckout(config)
                     sh '''
