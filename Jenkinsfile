@@ -2,6 +2,10 @@
 pipeline 
 {
     agent any
+     tools {
+        maven 'MAVEN'     // same name you set in Global Tool Config
+        jdk 'JDK_21'       // same name from Global Tool Config
+    }
 
     stages {
         stage('Checkout') {
@@ -23,9 +27,10 @@ pipeline
                 
             }
         }
-        stage('Test') {
+        stage('build') {
             steps {
-                echo 'Testing...'
+                echo 'build...'
+                sh 'mvn clean install'
             }
         }
         stage('Deploy') {
