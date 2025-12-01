@@ -2,10 +2,10 @@
 pipeline 
 {
     agent any
-     tools {
-        maven 'MAVEN'     // same name you set in Global Tool Config
-        jdk 'JDK_21'       // same name from Global Tool Config
-    }
+    //  tools {
+    //     maven 'MAVEN'     // same name you set in Global Tool Config
+    //     jdk 'JDK_21'       // same name from Global Tool Config
+    // }
 
     stages {
         stage('Checkout') {
