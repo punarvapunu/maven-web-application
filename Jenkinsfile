@@ -32,7 +32,7 @@ pipeline
             steps {
                 echo 'build...'
                 sh 'mvn clean install'
-                echo "building"
+                echo "building the code"
             }
             
         }
