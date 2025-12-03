@@ -17,7 +17,7 @@ pipeline
                     def config = [ 
                             url: 'https://github.com/punarvapunu/maven-web-application.git',
                             branch: 'master',
-                            credentialsId: 'github_credatial'
+                            credentialsId: 'github'
                         ]
                     git_checkout(config)
                     sh '''
