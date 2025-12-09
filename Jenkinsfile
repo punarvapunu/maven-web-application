@@ -49,7 +49,7 @@ pipeline
 }
             steps{
                     script{
-                        def dockerImage  = docker.build("${REGISTRY}:${BUILD_NUMBER}") .
+                        def dockerImage  = docker.build("${REGISTRY}:${BUILD_NUMBER}")
                        // def dockerImage = docker.build("${REGISTRY}:${BUILD_NUMBER}")
                         docker.withRegistry('https://index.docker.io/v1/', "${DOCKER_CREDENTAILS}"){
                            
