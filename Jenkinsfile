@@ -49,10 +49,10 @@ pipeline
 }
             steps{
                     script{
-                        def docker_image  ='docker build -t $REGISTRY:$BUILD_NUMBER .'
+                        def dockerImage  ='docker build -t $REGISTRY:$BUILD_NUMBER .'
                         docker.withRegistry('', "${DOCKER_CREDENTAILS}"){
                            
-                            docker_image.push()
+                            dockerImage.push()
                         }
 
                         
