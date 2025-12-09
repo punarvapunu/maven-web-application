@@ -7,7 +7,7 @@ pipeline
         jdk 'JDK_21'       // same name from Global Tool Config
     }
         environment {
-            Image_Name = "maven-web-app",
+            Image_Name = "maven-web-app"
             REGISTRY = "punarvapunu29/${Image_Name}"
 
 
