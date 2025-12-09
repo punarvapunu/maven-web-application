@@ -38,8 +38,8 @@ pipeline
         stage('build') {
             steps {
                 echo 'build...'
-                 sh 'mvn clean'
-                echo "building the code successfully."
+                 sh 'mvn clean install'
+                echo "building the code successfully ........."
             }
             
         }
