@@ -51,7 +51,7 @@ pipeline
                     script{
                         def dockerImage  = docker.build("${REGISTRY}:${BUILD_NUMBER}") .
                        // def dockerImage = docker.build("${REGISTRY}:${BUILD_NUMBER}")
-                        docker.withRegistry('https://hub.docker.com/', "${DOCKER_CREDENTAILS}"){
+                        docker.withRegistry('https://index.docker.io/v1/', "${DOCKER_CREDENTAILS}"){
                            
                             dockerImage.push()
                         }
