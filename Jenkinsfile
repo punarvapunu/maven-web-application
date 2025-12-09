@@ -49,8 +49,9 @@ pipeline
 }
             steps{
                     script{
-                        def dockerImage  ='docker build -t $REGISTRY:$BUILD_NUMBER .'
-                        docker.withRegistry('', "${DOCKER_CREDENTAILS}"){
+                        def dockerImage  = docker.build("${REGISTRY}:${BUILD_NUMBER}") .
+                       // def dockerImage = docker.build("${REGISTRY}:${BUILD_NUMBER}")
+                        docker.withRegistry('https://hub.docker.com/', "${DOCKER_CREDENTAILS}"){
                            
                             dockerImage.push()
                         }
