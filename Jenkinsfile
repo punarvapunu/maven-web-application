@@ -51,7 +51,7 @@ pipeline
             steps{
                  echo "docker build  started"
                     script{
-                       docker_image ='docker build -t $REGISTRY:$BUILD_NUMBER .'
+                     def docker_image  ='docker build -t $REGISTRY:$BUILD_NUMBER .'
                     } 
                    // docker build -t dockerhandson/maven-web-application:1 .
                    //docker build -t $image-name:$BUILD_NUMBER .
