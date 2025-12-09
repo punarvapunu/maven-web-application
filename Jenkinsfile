@@ -63,8 +63,11 @@ pipeline
         }
          stage('docker push'){
             steps{
-                docker.withRegistry('https://hub.docker.com', '$DOCKER_CREDENTAILS')
-                docker_image.push()
+                script{
+                    docker.withRegistry('https://hub.docker.com', '$DOCKER_CREDENTAILS')
+                    docker_image.push()
+                }
+                
             }
          }
     }
