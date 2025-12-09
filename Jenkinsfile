@@ -9,6 +9,9 @@ pipeline
         environment {
             Image_Name = "maven-web-app"
             REGISTRY = "punarvapunu29/${Image_Name}"
+            CONTAINER_NAME = "maven-web-app-container"
+            DOCKER_CREDENTAILS = "docker_credendentail"
+           // TAG = "${BUILD_NUMBER}"
 
 
         }
@@ -47,7 +50,9 @@ pipeline
         stage('docker build'){
             steps{
                  echo "docker build  started"
-                    sh 'docker build -t $REGISTRY:$BUILD_NUMBER .'
+                    script{
+                       docker_image ='docker build -t $REGISTRY:$BUILD_NUMBER .'
+                    } 
                    // docker build -t dockerhandson/maven-web-application:1 .
                    //docker build -t $image-name:$BUILD_NUMBER .
                     echo "docker build completed"
@@ -56,6 +61,11 @@ pipeline
             }
 
         }
-        
+         stage('docker push'){
+            steps{
+                docker.withRegistry('https://hub.docker.com', '$DOCKER_CREDENTAILS')
+                docker_image.push()
+            }
+         }
     }
 }
