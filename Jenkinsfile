@@ -49,7 +49,7 @@ pipeline
 }
             steps{
                     script{
-                        docker.withRegistry('https://hub.docker.com', "${DOCKER_CREDENTAILS}"){
+                        docker.withRegistry('', "${DOCKER_CREDENTAILS}"){
                             docker_image  ='docker build -t $REGISTRY:$BUILD_NUMBER .'
                             docker_image.push()
                         }
