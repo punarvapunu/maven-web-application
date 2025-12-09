@@ -6,15 +6,7 @@ pipeline
         maven 'MAVEN'     // same name you set in Global Tool Config
         jdk 'JDK_21'       // same name from Global Tool Config
     }
-        environment {
-            Image_Name = "maven-web-app"
-            REGISTRY = "punarvapunu29/${Image_Name}"
-            CONTAINER_NAME = "maven-web-app-container"
-            DOCKER_CREDENTAILS = "docker_credendentail"
-           // TAG = "${BUILD_NUMBER}"
-
-
-        }
+        
 
 
     stages {
@@ -47,11 +39,17 @@ pipeline
             
         }
       
-        stage('docker build'){
+        stage('docker build & push '){
+            environment {
+            Image_Name = "maven-web-app"
+            REGISTRY = "punarvapunu29/${Image_Name}"
+            CONTAINER_NAME = "maven-web-app-container"
+            DOCKER_CREDENTAILS = "docker_credendentail"
+           // TAG = "${BUILD_NUMBER}"
+}
             steps{
-                 echo "docker build  started"
                     script{
-                        docker.withRegistry('https://hub.docker.com', '$DOCKER_CREDENTAILS'){
+                        docker.withRegistry('https://hub.docker.com', "${DOCKER_CREDENTAILS}"){
                             docker_image  ='docker build -t $REGISTRY:$BUILD_NUMBER .'
                             docker_image.push()
                         }
