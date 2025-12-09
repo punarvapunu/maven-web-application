@@ -50,7 +50,7 @@ pipeline
             steps{
                     script{
                         docker.withRegistry('', "${DOCKER_CREDENTAILS}"){
-                            docker_image  ='docker build -t $REGISTRY:$BUILD_NUMBER .'
+                           def docker_image  ='docker build -t $REGISTRY:$BUILD_NUMBER .'
                             docker_image.push()
                         }
 
