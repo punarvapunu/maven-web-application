@@ -7,8 +7,8 @@ pipeline
         jdk 'JDK_21'       // same name from Global Tool Config
     }
         environment {
-            image-name : "maven-web-app"
-            registry : "punarvapunu29/${image-name}"
+            Image_Name = "maven-web-app",
+            REGISTRY = "punarvapunu29/${Image_Name}"
 
 
         }
@@ -47,7 +47,7 @@ pipeline
         stage('docker build'){
             steps{
                  echo "docker build  started"
-                    sh 'docker build -t $registry:$BUILD_NUMBER .'
+                    sh 'docker build -t $REGISTRY:$BUILD_NUMBER .'
                    // docker build -t dockerhandson/maven-web-application:1 .
                    //docker build -t $image-name:$BUILD_NUMBER .
                     echo "docker build completed"
