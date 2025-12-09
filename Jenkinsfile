@@ -51,24 +51,20 @@ pipeline
             steps{
                  echo "docker build  started"
                     script{
-                     def docker_image  ='docker build -t $REGISTRY:$BUILD_NUMBER .'
+                        docker.withRegistry('https://hub.docker.com', '$DOCKER_CREDENTAILS'){
+                            docker_image  ='docker build -t $REGISTRY:$BUILD_NUMBER .'
+                            docker_image.push()
+                        }
+
+                        
                     } 
                    // docker build -t dockerhandson/maven-web-application:1 .
                    //docker build -t $image-name:$BUILD_NUMBER .
-                    echo "docker build completed"
-
+                   
                  
             }
 
         }
-         stage('docker push'){
-            steps{
-                script{
-                    docker.withRegistry('https://hub.docker.com', '$DOCKER_CREDENTAILS')
-                    docker_image.push()
-                }
-                
-            }
-         }
+        
     }
 }
