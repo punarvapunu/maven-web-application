@@ -26,8 +26,9 @@ ENV APP_NAME=maven-web-application
 WORKDIR $APP_HOME
 
 # Create a new user and set it as the default user
-RUN useradd -m appuser
+RUN useradd -m appuser && chown -R appuser:appuser /usr/local/tomcat
 USER appuser
+
 
 # Copy the WAR file from the build stage to the Tomcat webapps directory
 COPY --from=build /usr/src/app/target/${APP_NAME}*.war $APP_HOME/${APP_NAME}.war
